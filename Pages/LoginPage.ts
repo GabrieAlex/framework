@@ -3,7 +3,7 @@ import { expect, Locator, Page } from "@playwright/test";
 import ApplicationURL from "../helpers/ApplicationURL";
 import { BasePage } from "./BasePage";
 
-export default class LoginPage extends BasePage {
+export default class LoginPage  {
 
     private usernameField: Locator;
     private passwordField: Locator;
@@ -15,7 +15,7 @@ export default class LoginPage extends BasePage {
 
     
     constructor(protected page: Page) {
-        super(page);
+        //super(page);
         this.usernameField = this.page.locator('input[test-id=email]');
         this.passwordField = this.page.locator('input[test-id=password]');
         this.loginButton = this.page.getByRole('link', { name: 'Log In' });
@@ -25,7 +25,7 @@ export default class LoginPage extends BasePage {
 
     public async loginToApp(){
         //go to url
-        await this.page.goto('https://cymulate.com/');
+        await this.page.goto(ApplicationURL.Base_URL);
         //move to login page
         //await this.page.getByRole('link', { name: 'Log In' }).click();
         await this.loginButton.click();
