@@ -30,7 +30,7 @@ export default class LoginPage  {
         //await this.page.getByRole('link', { name: 'Log In' }).click();
         await this.loginButton.click();
         //verify title of sign up page
-         expect(this.page.getByRole('heading', { name: 'Log in to your account' })).toBeVisible;
+         expect(this.page.getByRole('heading', { name: 'Log in to your account' })).toContainText;
 
     }
 
